@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toolbar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -34,6 +35,15 @@ class DetailActivity : AppCompatActivity() {
         btnDelete = findViewById(R.id.btn_delete)
 
         database = AppDatabase.getInstance(applicationContext)
+
+        // Back button
+        val toolbar: androidx.appcompat.widget.Toolbar = findViewById(R.id.back_button_detail)
+        toolbar.setNavigationOnClickListener {
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         val intent = intent.extras
         if (intent != null) {

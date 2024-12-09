@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none"
-    tools:context=".MainActivity">
+    android:scrollbars="none">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -40,9 +39,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/inter"
-                android:text="Informasi"
+                android:text="Information"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/vpHome"
                 app:layout_constraintTop_toBottomOf="@+id/search" />
@@ -52,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="Selengkapnya"
+                android:text="See more.."
                 android:textColor="@color/blue"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvInfoHome"
@@ -64,9 +63,9 @@
                 android:id="@+id/vpHome"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
                 android:autoStart="true"
                 android:flipInterval="5000"
                 android:inAnimation="@anim/slide_right"
@@ -80,19 +79,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="Gambar slider"
-                    android:src="@drawable/ip11" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/slidder_ip16" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="Gambar slider"
-                    android:src="@drawable/ip12" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/slidder_ipse" />
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:contentDescription="Gambar slider"
-                    android:src="@drawable/ip13" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/slidder_15pm" />
 
             </ViewFlipper>
 
@@ -100,12 +102,12 @@
                 android:id="@+id/tvBtnAddHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/inter"
-                android:text="Produk"
+                android:text="Our Product"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/vpHome"
                 app:layout_constraintTop_toBottomOf="@+id/vpHome" />
@@ -115,8 +117,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter"
-                android:text="Ragam Produk"
-                android:textSize="12sp"
+                android:text="Get and find the best price"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/tvBtnAddHome"
                 app:layout_constraintTop_toBottomOf="@+id/tvBtnAddHome" />
 

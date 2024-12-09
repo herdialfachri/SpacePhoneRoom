@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
 import com.herdialfachri.spacephoneroom.dao.AppDatabase
 import com.herdialfachri.spacephoneroom.dao.User
@@ -17,8 +18,7 @@ class EditorActivity : AppCompatActivity() {
     private lateinit var phone: EditText
     private lateinit var address: EditText
     private lateinit var btnSimpan: Button
-    private lateinit var btnPilihGambar: Button
-    private lateinit var previewGambar: ImageView
+    private lateinit var btnPilihGambar: ImageView
     private lateinit var database: AppDatabase
     private var gambarPath: String? = null
 
@@ -31,9 +31,18 @@ class EditorActivity : AppCompatActivity() {
         address = findViewById(R.id.address)
         btnSimpan = findViewById(R.id.btnSimpan)
         btnPilihGambar = findViewById(R.id.btnPilihGambar)
-        previewGambar = findViewById(R.id.preview_gambar)
 
         database = AppDatabase.getInstance(applicationContext)
+
+        // Back button
+        val toolbar: Toolbar = findViewById(R.id.back_button_editor)
+        toolbar.setNavigationOnClickListener {
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
 
         val intent = intent.extras
         if(intent != null) {
@@ -44,7 +53,7 @@ class EditorActivity : AppCompatActivity() {
             address.setText(user.address)
             gambarPath = user.gambar
             if (gambarPath != null) {
-                Glide.with(this).load(gambarPath).into(previewGambar)
+                Glide.with(this).load(gambarPath).into(btnPilihGambar)
             }
         }
 
@@ -96,7 +105,7 @@ class EditorActivity : AppCompatActivity() {
         if (requestCode == 1 && resultCode == RESULT_OK) {
             val selectedImageUri = data?.data
             gambarPath = selectedImageUri.toString()
-            Glide.with(this).load(gambarPath).into(previewGambar)
+            Glide.with(this).load(gambarPath).into(btnPilihGambar)
         }
     }
 }
