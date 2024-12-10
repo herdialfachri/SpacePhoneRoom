@@ -18,9 +18,9 @@
                 android:id="@+id/search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="16dp"
                 android:background="@drawable/lavender_border"
                 android:focusable="false"
                 app:closeIcon="@drawable/baseline_close_24"
@@ -28,7 +28,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:queryHint="Cari handphone apa?"
+                app:queryHint="looking brand new phone?"
                 app:searchHintIcon="@null"
                 app:searchIcon="@drawable/search" />
 
@@ -57,7 +57,6 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tvInfoHome"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tvInfoHome" />
-
 
             <ViewFlipper
                 android:id="@+id/vpHome"
