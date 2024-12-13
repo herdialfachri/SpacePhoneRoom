@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.herdialfachri.spacephoneroom.dao.AppDatabase
+import com.herdialfachri.spacephoneroom.entitiy.AppDatabase
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var detailGambar: ImageView

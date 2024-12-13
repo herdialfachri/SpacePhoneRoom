@@ -1,5 +1,6 @@
 package com.herdialfachri.spacephoneroom
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -9,8 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
-import com.herdialfachri.spacephoneroom.dao.AppDatabase
-import com.herdialfachri.spacephoneroom.dao.User
+import com.herdialfachri.spacephoneroom.entitiy.AppDatabase
+import com.herdialfachri.spacephoneroom.entitiy.User
 
 class EditorActivity : AppCompatActivity() {
     private lateinit var fullName: EditText
@@ -21,6 +22,7 @@ class EditorActivity : AppCompatActivity() {
     private lateinit var btnPilihGambar: ImageView
     private lateinit var database: AppDatabase
     private var gambarPath: String? = null
+    private var loginId: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,27 +36,33 @@ class EditorActivity : AppCompatActivity() {
 
         database = AppDatabase.getInstance(applicationContext)
 
+        // Ambil email pengguna yang login dari SharedPreferences
+        val sharedPreferences = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
+        val currentEmail = sharedPreferences.getString("email", null)
+
         // Back button
         val toolbar: Toolbar = findViewById(R.id.back_button_editor)
         toolbar.setNavigationOnClickListener {
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-
         val intent = intent.extras
-        if(intent != null) {
+        if (intent != null) {
             val user = database.userDao().get(intent.getInt("id"))
             fullName.setText(user.fullName)
             email.setText(user.email)
             phone.setText(user.phone)
             address.setText(user.address)
             gambarPath = user.gambar
+            loginId = user.loginId // Dapatkan loginId dari user
             if (gambarPath != null) {
                 Glide.with(this).load(gambarPath).into(btnPilihGambar)
             }
+        } else {
+            // Set email pengguna yang sedang login
+            email.setText(currentEmail)
         }
 
         btnPilihGambar.setOnClickListener {
@@ -65,7 +73,10 @@ class EditorActivity : AppCompatActivity() {
 
         btnSimpan.setOnClickListener {
             if (fullName.text.isNotEmpty() && email.text.isNotEmpty() && phone.text.isNotEmpty()) {
-                if(intent != null) {
+                if (loginId == null) {
+                    loginId = database.userLoginDao().getLoginIdByEmail(currentEmail!!)
+                }
+                if (intent != null) {
                     // Kode edit data
                     database.userDao().update(
                         User(
@@ -74,7 +85,8 @@ class EditorActivity : AppCompatActivity() {
                             email.text.toString(),
                             phone.text.toString(),
                             address.text.toString(),
-                            gambarPath
+                            gambarPath,
+                            loginId // Sertakan loginId
                         )
                     )
                 } else {
@@ -86,7 +98,8 @@ class EditorActivity : AppCompatActivity() {
                             email.text.toString(),
                             phone.text.toString(),
                             address.text.toString(),
-                            gambarPath
+                            gambarPath,
+                            loginId // Sertakan loginId
                         )
                     )
                 }

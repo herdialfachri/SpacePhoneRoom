@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.herdialfachri.spacephoneroom.DetailActivity
 import com.herdialfachri.spacephoneroom.R
-import com.herdialfachri.spacephoneroom.dao.User
+import com.herdialfachri.spacephoneroom.entitiy.User
 
 class UserAdapter(var list: List<User>): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
 
