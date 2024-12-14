@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private var list = mutableListOf<User>()
     private lateinit var database: AppDatabase
     private lateinit var loginButton: Button
-    private lateinit var logoutButton: Button
+    private lateinit var userCenter: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.rv_user)
         fab = findViewById(R.id.floatingbtn)
         loginButton = findViewById(R.id.login_button)
-        logoutButton = findViewById(R.id.logout_button)
+        userCenter = findViewById(R.id.user_center)
 
         database = AppDatabase.getInstance(applicationContext)
         adapter = UserAdapter(list)
@@ -57,18 +58,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        logoutButton.setOnClickListener {
-            val sharedPreferences = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-            sharedPreferences.edit().remove("token").apply()
-
-            loginButton.visibility = View.VISIBLE
-            logoutButton.visibility = View.GONE
-
-            // Arahkan ke LoginActivity setelah logout
-            val intent = Intent(this, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        userCenter.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
-            finish()
         }
 
         checkLoginStatus()
@@ -93,11 +85,11 @@ class MainActivity : AppCompatActivity() {
         if (token != null) {
             // Pengguna sudah login
             loginButton.visibility = View.GONE
-            logoutButton.visibility = View.VISIBLE
+            userCenter.visibility = View.VISIBLE
         } else {
             // Pengguna belum login
             loginButton.visibility = View.VISIBLE
-            logoutButton.visibility = View.GONE
+            userCenter.visibility = View.GONE
         }
     }
 }

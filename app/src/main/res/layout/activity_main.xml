@@ -16,7 +16,7 @@
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/search"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -27,7 +27,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/login_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:queryHint="looking brand new phone?"
+                app:queryHint="Cari apa?"
                 app:searchHintIcon="@null"
                 app:searchIcon="@drawable/search" />
 
@@ -36,17 +36,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="Login"
-                app:layout_constraintEnd_toStartOf="@+id/logout_button"
+                android:text="Masuk"
+                app:layout_constraintEnd_toStartOf="@+id/user_center"
                 app:layout_constraintTop_toTopOf="@+id/search"
                 app:layout_constraintBottom_toBottomOf="@+id/search"/>
 
-            <Button
-                android:id="@+id/logout_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageView
+                android:id="@+id/user_center"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:layout_marginEnd="16dp"
-                android:text="Logout"
+                android:src="@drawable/baseline_account_circle_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/search"
                 app:layout_constraintBottom_toBottomOf="@+id/search"/>
@@ -58,7 +58,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/inter"
-                android:text="Information"
+                android:text="Informasi"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -123,7 +123,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/inter"
-                android:text="Our Product"
+                android:text="Produk Kami"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"

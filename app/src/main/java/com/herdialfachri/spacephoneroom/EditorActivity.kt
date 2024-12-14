@@ -51,6 +51,11 @@ class EditorActivity : AppCompatActivity() {
         val intent = intent.extras
         if (intent != null) {
             val user = database.userDao().get(intent.getInt("id"))
+            if (user.creatorEmail != currentEmail) {
+                Toast.makeText(this, "Anda tidak memiliki izin untuk mengedit data ini.", Toast.LENGTH_SHORT).show()
+                finish()
+                return
+            }
             fullName.setText(user.fullName)
             email.setText(user.email)
             phone.setText(user.phone)
@@ -86,7 +91,8 @@ class EditorActivity : AppCompatActivity() {
                             phone.text.toString(),
                             address.text.toString(),
                             gambarPath,
-                            loginId // Sertakan loginId
+                            loginId, // Sertakan loginId
+                            currentEmail
                         )
                     )
                 } else {
@@ -99,7 +105,8 @@ class EditorActivity : AppCompatActivity() {
                             phone.text.toString(),
                             address.text.toString(),
                             gambarPath,
-                            loginId // Sertakan loginId
+                            loginId, // Sertakan loginId
+                            currentEmail // Sertakan email pengguna yang sedang login sebagai creatorEmail
                         )
                     )
                 }

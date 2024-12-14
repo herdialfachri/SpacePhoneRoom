@@ -18,5 +18,6 @@ data class User(
     @ColumnInfo(name = "phone") val phone: String?,
     @ColumnInfo(name = "address") val address: String?,
     @ColumnInfo(name = "gambar") val gambar: String? = null,
-    @ColumnInfo(name = "loginId") val loginId: Int? = null
+    @ColumnInfo(name = "loginId") val loginId: Int? = null,
+    @ColumnInfo(name = "creatorEmail") val creatorEmail: String? = null
 )

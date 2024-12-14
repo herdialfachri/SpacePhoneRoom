@@ -1,10 +1,12 @@
 package com.herdialfachri.spacephoneroom
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.herdialfachri.spacephoneroom.repository.UserRepository
 
 class RegisterActivity : AppCompatActivity() {
@@ -20,6 +22,14 @@ class RegisterActivity : AppCompatActivity() {
         val emailInput: EditText = findViewById(R.id.email_input)
         val passwordInput: EditText = findViewById(R.id.password_input)
         val registerButton: Button = findViewById(R.id.register_button)
+
+        // Back button
+        val toolbar: Toolbar = findViewById(R.id.back_to_login)
+        toolbar.setNavigationOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         registerButton.setOnClickListener {
             val email = emailInput.text.toString()

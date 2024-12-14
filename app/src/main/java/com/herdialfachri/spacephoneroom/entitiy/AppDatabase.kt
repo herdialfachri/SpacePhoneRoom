@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.herdialfachri.spacephoneroom.dao.UserDao
 import com.herdialfachri.spacephoneroom.dao.UserLoginDao
 
-@Database(entities = [User::class, UserLogin::class], version = 5)
+@Database(entities = [User::class, UserLogin::class], version = 6)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun userLoginDao(): UserLoginDao

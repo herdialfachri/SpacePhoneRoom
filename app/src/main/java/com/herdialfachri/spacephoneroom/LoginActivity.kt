@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
                 sharedPreferences.edit().putString("email", email).apply() // Simpan email pengguna yang login
 
                 val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
             } else {
                 emailInput.error = "Email atau kata sandi salah"
