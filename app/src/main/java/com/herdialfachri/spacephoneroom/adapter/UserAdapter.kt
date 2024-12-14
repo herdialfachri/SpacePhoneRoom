@@ -17,7 +17,6 @@ class UserAdapter(var list: List<User>): RecyclerView.Adapter<UserAdapter.ViewHo
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var gambar: ImageView = view.findViewById(R.id.gambar)
         var fullName: TextView = view.findViewById(R.id.full_name)
-        var email: TextView = view.findViewById(R.id.email)
         var phone: TextView = view.findViewById(R.id.phone)
         var address: TextView = view.findViewById(R.id.address)
 
@@ -45,7 +44,6 @@ class UserAdapter(var list: List<User>): RecyclerView.Adapter<UserAdapter.ViewHo
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.fullName.text = list[position].fullName
-        holder.email.text = list[position].email
         holder.phone.text = list[position].phone
         holder.address.text = list[position].address
 

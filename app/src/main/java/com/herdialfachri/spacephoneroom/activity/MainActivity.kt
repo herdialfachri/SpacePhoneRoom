@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var adapter: UserAdapter
     private var list = mutableListOf<User>()
     private lateinit var database: AppDatabase
-    private lateinit var loginButton: Button
+    private lateinit var loginButton: ImageView
     private lateinit var userCenter: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {

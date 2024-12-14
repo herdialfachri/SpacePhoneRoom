@@ -16,7 +16,7 @@
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/search"
                 android:layout_width="0dp"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -31,20 +31,20 @@
                 app:searchHintIcon="@null"
                 app:searchIcon="@drawable/search" />
 
-            <Button
+            <ImageView
                 android:id="@+id/login_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:text="Masuk"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/baseline_login_24"
+                app:layout_constraintBottom_toBottomOf="@+id/search"
                 app:layout_constraintEnd_toStartOf="@+id/user_center"
-                app:layout_constraintTop_toTopOf="@+id/search"
-                app:layout_constraintBottom_toBottomOf="@+id/search"/>
+                app:layout_constraintTop_toTopOf="@+id/search" />
 
             <ImageView
                 android:id="@+id/user_center"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/baseline_account_circle_24"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="See more.."
+                android:text="Selengkapnya.."
                 android:textColor="@color/blue"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/tvInfoHome"
@@ -113,7 +113,6 @@
                     android:contentDescription="Gambar slider"
                     android:scaleType="centerCrop"
                     android:src="@drawable/slidder_15pm" />
-
             </ViewFlipper>
 
             <TextView
