@@ -1,4 +1,4 @@
-package com.herdialfachri.spacephoneroom
+package com.herdialfachri.spacephoneroom.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.herdialfachri.spacephoneroom.R
 import com.herdialfachri.spacephoneroom.repository.UserRepository
 
 class RegisterActivity : AppCompatActivity() {

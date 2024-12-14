@@ -1,4 +1,4 @@
-package com.herdialfachri.spacephoneroom
+package com.herdialfachri.spacephoneroom.activity
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.herdialfachri.spacephoneroom.R
 
 class ProfileActivity : AppCompatActivity() {
 

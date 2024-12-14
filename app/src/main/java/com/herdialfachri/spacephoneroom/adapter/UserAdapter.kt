@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.herdialfachri.spacephoneroom.DetailActivity
+import com.herdialfachri.spacephoneroom.activity.DetailActivity
 import com.herdialfachri.spacephoneroom.R
 import com.herdialfachri.spacephoneroom.entitiy.User
 

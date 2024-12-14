@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".RegisterActivity"
+    tools:context=".activity.RegisterActivity"
     android:background="@drawable/loginbg">
 
     <com.google.android.material.appbar.AppBarLayout

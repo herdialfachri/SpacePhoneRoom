@@ -1,4 +1,4 @@
-package com.herdialfachri.spacephoneroom
+package com.herdialfachri.spacephoneroom.activity
 
 import android.content.Context
 import android.content.Intent
@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.herdialfachri.spacephoneroom.R
 import com.herdialfachri.spacephoneroom.adapter.UserAdapter
 import com.herdialfachri.spacephoneroom.entitiy.AppDatabase
 import com.herdialfachri.spacephoneroom.entitiy.User

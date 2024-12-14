@@ -1,4 +1,4 @@
-package com.herdialfachri.spacephoneroom
+package com.herdialfachri.spacephoneroom.activity
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.herdialfachri.spacephoneroom.R
 import com.herdialfachri.spacephoneroom.repository.UserRepository
 
 class LoginActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.herdialfachri.spacephoneroom
+package com.herdialfachri.spacephoneroom.activity
 
 import android.content.Context
 import android.content.Intent
@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
+import com.herdialfachri.spacephoneroom.R
 import com.herdialfachri.spacephoneroom.entitiy.AppDatabase
 
 class DetailActivity : AppCompatActivity() {
