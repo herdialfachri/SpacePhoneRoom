@@ -86,10 +86,12 @@ class MainActivity : AppCompatActivity() {
             // Pengguna sudah login
             loginButton.visibility = View.GONE
             userCenter.visibility = View.VISIBLE
+            fab.visibility = View.VISIBLE // Tampilkan floating button jika pengguna sudah login
         } else {
             // Pengguna belum login
             loginButton.visibility = View.VISIBLE
             userCenter.visibility = View.GONE
+            fab.visibility = View.GONE // Sembunyikan floating button jika pengguna belum login
         }
     }
 }
