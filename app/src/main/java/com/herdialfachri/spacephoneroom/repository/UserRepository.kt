@@ -8,8 +8,9 @@ import java.util.UUID
 class UserRepository(context: Context) {
 
     private val userLoginDao = AppDatabase.getInstance(context).userLoginDao()
+    private val sharedPreferences = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
 
-    fun register(email: String, password: String): UserLogin? {
+    fun register(email: String, password: String): UserLogin {
         val userLogin = UserLogin(email = email, password = password)
         userLoginDao.insert(userLogin)
         return userLogin
@@ -23,9 +24,23 @@ class UserRepository(context: Context) {
             val token = UUID.randomUUID().toString()
             userLogin.token = token
             userLoginDao.update(userLogin)
+            sharedPreferences.edit().putString("token", token).apply()
+            sharedPreferences.edit().putString("email", email).apply()
             token
         } else {
             null
+        }
+    }
+
+    fun logout(email: String) {
+        // Hapus token dari database
+        userLoginDao.clearTokenByEmail(email)
+
+        // Hapus token dari SharedPreferences
+        with(sharedPreferences.edit()) {
+            remove("token")
+            remove("email")
+            apply()
         }
     }
 
@@ -34,23 +49,6 @@ class UserRepository(context: Context) {
         val userLogin = userLogins.find { it.email == email }
         return if (userLogin != null) {
             userLogin.password = newPassword
-            userLoginDao.update(userLogin)
-            true
-        } else {
-            false
-        }
-    }
-
-    fun forgotPassword(email: String): UserLogin? {
-        val userLogins = userLoginDao.getAll()
-        return userLogins.find { it.email == email }
-    }
-
-    fun logout(token: String): Boolean {
-        val userLogins = userLoginDao.getAll()
-        val userLogin = userLogins.find { it.token == token }
-        return if (userLogin != null) {
-            userLogin.token = null
             userLoginDao.update(userLogin)
             true
         } else {

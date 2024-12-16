@@ -19,4 +19,8 @@ interface UserLoginDao {
 
     @Query("SELECT loginId FROM user_login WHERE email = :email")
     fun getLoginIdByEmail(email: String): Int
+
+    // Fungsi baru untuk menghapus token berdasarkan email
+    @Query("UPDATE user_login SET token = NULL WHERE email = :email")
+    fun clearTokenByEmail(email: String)
 }

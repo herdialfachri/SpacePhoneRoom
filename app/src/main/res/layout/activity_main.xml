@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none">
+    android:scrollbars="none"
+    tools:context=".activity.MainActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -33,8 +34,8 @@
 
             <ImageView
                 android:id="@+id/login_button"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/baseline_login_24"
                 app:layout_constraintBottom_toBottomOf="@+id/search"
@@ -43,8 +44,8 @@
 
             <ImageView
                 android:id="@+id/user_center"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_marginEnd="16dp"
                 android:src="@drawable/baseline_account_circle_24"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +120,7 @@
                 android:id="@+id/tvBtnAddHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/inter"
                 android:text="Produk Kami"
@@ -147,7 +148,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="70dp"
+                android:layout_marginBottom="16dp"
                 android:nestedScrollingEnabled="false"
                 android:scrollbars="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -170,7 +171,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/vpHome"
                 app:tint="@color/white"
                 tools:ignore="ContentDescription" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
 </ScrollView>

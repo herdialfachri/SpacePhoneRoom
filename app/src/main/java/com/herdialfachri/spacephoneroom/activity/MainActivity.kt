@@ -40,25 +40,29 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.adapter = adapter
 
-        // Konfigurasi GridLayoutManager dengan 2 kolom
+        // Kode untuk menampilkan Recyclerview dalam layout Grid
         val gridLayoutManager = GridLayoutManager(applicationContext, 2)
         recyclerView.layoutManager = gridLayoutManager
 
+        // Kode agar jika tombol tambah di klik intent ke EditorActivity
         fab.setOnClickListener {
             startActivity(Intent(this, EditorActivity::class.java))
         }
 
+        // Kode agar jika teks Selengkapnya di klik intent ke website lain (optional)
         val tvMore: TextView = findViewById(R.id.tvMore)
         tvMore.setOnClickListener {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://herdialfachri.my.id/"))
             startActivity(browserIntent)
         }
 
+        // Kode agar jika ikon pintu di klik intent ke LoginActivity
         loginButton.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
 
+        // Kode agar jika ikon user di klik intent ke ProfileActivity
         userCenter.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
@@ -67,32 +71,35 @@ class MainActivity : AppCompatActivity() {
         checkLoginStatus()
     }
 
+    // Kode agar ketika aplikasi onResume data tetap ditampilkan dan mengecek status Login
     override fun onResume() {
         super.onResume()
         getData()
         checkLoginStatus()
     }
 
+    // Kode untuk mendapatkan data dengan memanggil fungsi di userDao
     private fun getData() {
         list.clear()
         list.addAll(database.userDao().getAll())
         adapter.notifyDataSetChanged()
     }
 
+    // Kode untuk mengecek status Login
     private fun checkLoginStatus() {
         val sharedPreferences = getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
         val token = sharedPreferences.getString("token", null)
 
         if (token != null) {
-            // Pengguna sudah login
+            // Logika jika pengguna sudah login
             loginButton.visibility = View.GONE
             userCenter.visibility = View.VISIBLE
-            fab.visibility = View.VISIBLE // Tampilkan floating button jika pengguna sudah login
+            fab.visibility = View.VISIBLE
         } else {
-            // Pengguna belum login
+            // Logika jika pengguna belum login
             loginButton.visibility = View.VISIBLE
             userCenter.visibility = View.GONE
-            fab.visibility = View.GONE // Sembunyikan floating button jika pengguna belum login
+            fab.visibility = View.GONE
         }
     }
 }
